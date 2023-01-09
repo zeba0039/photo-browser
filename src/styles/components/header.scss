@@ -1,0 +1,11 @@
+.navbar {
+  &.bg-dark {
+    background-color: black !important;
+  }
+  padding-bottom: 1.875rem !important;
+  .navbar-brand {
+    color: white;
+    font-family: 'Josefin';
+    font-size: 32px;
+  }
+}

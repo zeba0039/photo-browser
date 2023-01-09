@@ -1,0 +1,61 @@
+@import './components/header.scss';
+@import './components/album.scss';
+@import './components/photo.scss';
+@import './components/user.scss';
+@import './components/pagination.scss';
+
+@font-face {
+  font-family: 'Josefin';
+
+  src: url('./fonts/JosefinSans-Regular.ttf') format('truetype');
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
+html,
+body,
+#root {
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin';
+  background-color: black;
+}
+
+#root {
+  padding: 1.875rem;
+}
+
+.albums-container {
+  width: 100%;
+  display: grid;
+  gap: 1.875rem;
+  @media (min-width: 1441px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  @media (max-width: 1440px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
