@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { fetchAllPhotos, fetchPhotos } from '../controller/controller';
 import Pagination from '../components/pagination';
 import Loader from '../components/loader';
@@ -12,6 +12,11 @@ const Photos = () => {
   const [totalCount, setCount] = useState(20);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const location = useLocation();
+  let name;
+  if (location.state) {
+    name = location.state.name;
+  }
   useEffect(() => {
     async function getPhotos() {
       let resp;
@@ -39,10 +44,38 @@ const Photos = () => {
 
   return (
     <>
-      {loading ? (
+      {loading || photos.length === 0 ? (
         <Loader />
       ) : (
         <>
+          {id ? (
+            <>
+              <nav aria-label='breadcrumb'>
+                <ol className='breadcrumb'>
+                  {/* <li class="breadcrumb-item"><a href="/">Home</a></li> */}
+                  <li className='breadcrumb-item'>
+                    <a href='/'>{name}</a>
+                  </li>
+                  <li className='breadcrumb-item active' aria-current='page'>
+                    Photos
+                  </li>
+                </ol>
+              </nav>
+            </>
+          ) : (
+            <>
+              <nav aria-label='breadcrumb'>
+                <ol className='breadcrumb'>
+                  <li className='breadcrumb-item'>
+                    <a href='/'>Home</a>
+                  </li>
+                  <li className='breadcrumb-item active' aria-current='page'>
+                    Photos
+                  </li>
+                </ol>
+              </nav>
+            </>
+          )}
           <div className='albums-container'>
             {photos.map(({ id, title, thumbnailUrl, url }) => {
               return (

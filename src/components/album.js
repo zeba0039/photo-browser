@@ -10,7 +10,7 @@ const Album = ({ title, id }) => {
         <span>{title}</span>
         <button
           onClick={() => {
-            navigate(`/albums/${id}/photos`);
+            navigate(`/albums/${id}/photos`, { state: { name: title } });
           }}
           className='more-photos'
         >

@@ -29,7 +29,7 @@ const HomePage = () => {
 
   return (
     <>
-      {loading ? (
+      {loading || albums.length === 0 ? (
         <Loader />
       ) : (
         <>
