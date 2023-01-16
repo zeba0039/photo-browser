@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { capitalize } from 'lodash';
 
 const Album = ({ title, id }) => {
   let navigate = useNavigate();
@@ -7,7 +8,7 @@ const Album = ({ title, id }) => {
     <div className='album-tile' style={{ backgroundColor: `#${randomColor}` }}>
       <h1>{title[0].toUpperCase()}</h1>
       <div className='details'>
-        <span>{title}</span>
+        <span>{capitalize(title)}</span>
         <button
           onClick={() => {
             navigate(`/albums/${id}/photos`, { state: { name: title } });

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
+import { capitalize } from 'lodash';
 import { fetchAllPhotos, fetchPhotos } from '../controller/controller';
 import Pagination from '../components/pagination';
 import Loader from '../components/loader';
@@ -54,10 +55,10 @@ const Photos = () => {
                 <ol className='breadcrumb'>
                   {/* <li class="breadcrumb-item"><a href="/">Home</a></li> */}
                   <li className='breadcrumb-item'>
-                    <a href='/'>{name}</a>
+                    <a href='/'>Home</a>
                   </li>
                   <li className='breadcrumb-item active' aria-current='page'>
-                    Photos
+                    {capitalize(name)}
                   </li>
                 </ol>
               </nav>

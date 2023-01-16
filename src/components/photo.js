@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { capitalize } from 'lodash';
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 
@@ -28,7 +29,7 @@ const Photo = ({ title, id, thumbnailUrl, url }) => {
               <img src={url} alt={thumbnailUrl} />
             </div>
             <div className='photo-details col-lg-4 col-md-4 col-sm-12'>
-              <h3>{title}</h3>
+              <h3>{capitalize(title)}</h3>
             </div>
           </div>
         </Rodal>

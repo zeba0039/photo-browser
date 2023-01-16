@@ -1,22 +1,22 @@
 .pagination-container {
   display: flex;
   justify-content: center;
-  margin-top: 1em;
+  margin-top: 2em;
 
   .pagination {
     --bs-pagination-color: #fff;
     --bs-pagination-bg: #000;
     --bs-pagination-border-width: 1px;
-    --bs-pagination-border-color: #dee2e6;
-    --bs-pagination-border-radius: 0.375rem;
+    --bs-pagination-border-color: #fff000;
+    --bs-pagination-border-radius: 0rem;
     --bs-pagination-hover-color: #3d3d3d;
-    --bs-pagination-focus-bg: #e9ecef;
-    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(98, 99, 100, 0.25);
+    --bs-pagination-focus-bg: #fff000;
+    --bs-pagination-focus-box-shadow: 0 0 0 0rem rgba(98, 99, 100, 0.25);
     --bs-pagination-active-color: #000;
-    --bs-pagination-active-bg: #fff;
-    --bs-pagination-active-border-color: #fff;
+    --bs-pagination-active-bg: #fff000;
+    --bs-pagination-active-border-color: #fff000;
     --bs-pagination-disabled-color: #6c757d;
     --bs-pagination-disabled-bg: #000;
-    --bs-pagination-disabled-border-color: #dee2e6;
+    --bs-pagination-disabled-border-color: #fff000;
   }
 }
