@@ -1,8 +1,8 @@
 @import './components/header.scss';
 @import './components/album.scss';
-@import './components/photo.scss';
 @import './components/user.scss';
 @import './components/pagination.scss';
+@import './pages/photo.scss';
 
 @font-face {
   font-family: 'Josefin';
@@ -46,6 +46,18 @@ body,
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
   }
+
+  .photo {
+    transition: filter 1s ease-out 100ms;
+    filter: grayscale(100%);
+    cursor: zoom-in;
+    img {
+      width: 100%;
+    }
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
 }
 
 .mr-10 {
@@ -63,5 +75,49 @@ body,
 .breadcrumb {
   a {
     color: #ffff00 !important;
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+
+.modal-container {
+  .rodal-dialog {
+    width: fit-content !important;
+    height: fit-content !important;
+    background-color: #000;
+    box-shadow: 0 0px 10px 6px rgba(255, 255, 0, 0.5);
+    max-width: 80%;
+    .rodal-close {
+      z-index: 3;
+    }
+    .carousel {
+      .slide {
+        img {
+          @media (min-width: 769px) {
+            width: auto !important;
+          }
+        }
+        align-items: center;
+        display: flex;
+        div {
+          display: flex;
+          justify-content: center;
+          .legend {
+            left: unset;
+            margin-left: unset;
+            width: unset;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .carousel-status {
+        left: 0;
+      }
+    }
   }
 }

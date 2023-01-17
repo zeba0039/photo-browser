@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { capitalize } from 'lodash';
+import { Carousel } from 'react-responsive-carousel';
+import Rodal from 'rodal';
 import { fetchAllPhotos, fetchPhotos } from '../controller/controller';
 import Pagination from '../components/pagination';
 import Loader from '../components/loader';
-import Photo from '../components/photo';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'rodal/lib/rodal.css';
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
@@ -12,8 +15,10 @@ const Photos = () => {
   const [limit] = useState(20);
   const [totalCount, setCount] = useState(20);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const location = useLocation();
+  let navigate = useNavigate();
   let name;
   if (location.state) {
     name = location.state.name;
@@ -53,7 +58,6 @@ const Photos = () => {
             <>
               <nav aria-label='breadcrumb'>
                 <ol className='breadcrumb'>
-                  {/* <li class="breadcrumb-item"><a href="/">Home</a></li> */}
                   <li className='breadcrumb-item'>
                     <a href='/'>Home</a>
                   </li>
@@ -78,18 +82,45 @@ const Photos = () => {
             </>
           )}
           <div className='albums-container'>
-            {photos.map(({ id, title, thumbnailUrl, url }) => {
+            {photos.map(({ id, thumbnailUrl }) => {
               return (
-                <Photo
-                  id={id}
-                  title={title}
+                <div
+                  className='photo'
                   key={id}
-                  thumbnailUrl={thumbnailUrl}
-                  url={url}
-                />
+                  onClick={() => setShowModal(true)}
+                >
+                  <img src={thumbnailUrl} alt={thumbnailUrl} />
+                </div>
               );
             })}
           </div>
+          {showModal && (
+            <Rodal
+              visible={showModal}
+              onClose={() => {
+                setShowModal(false);
+              }}
+              className='modal-container'
+            >
+              <Carousel showArrows={true} autoPlay>
+                {photos.map(({ id, title, url }) => {
+                  return (
+                    <div key={id}>
+                      <img src={url} alt={url} />
+                      <p
+                        className='legend'
+                        onClick={() => {
+                          navigate(`/photo/${id}`);
+                        }}
+                      >
+                        {capitalize(title)}
+                      </p>
+                    </div>
+                  );
+                })}
+              </Carousel>
+            </Rodal>
+          )}
           <Pagination
             page={page}
             limit={limit}

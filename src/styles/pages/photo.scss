@@ -1,0 +1,43 @@
+.photo-details-container {
+  color: #fff;
+  cursor: default;
+  .photo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .photo-title {
+      margin-top: 3rem;
+    }
+  }
+  .album-details,
+  .user-details {
+    h3 {
+      margin-top: 3rem;
+      &:hover {
+        color: #fff000;
+      }
+    }
+    .cursor {
+      cursor: pointer;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      color: rgb(76, 76, 76);
+      a {
+        color: #fff000;
+        &:hover {
+          color: #fff;
+        }
+      }
+      &.light {
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

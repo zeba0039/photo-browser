@@ -57,3 +57,13 @@ export const fetchPhotoById = async ({ id }) => {
     console.log('Error', error);
   }
 };
+
+export const fetchAlbumById = async ({ id }) => {
+  try {
+    const response = await axios.get(`${API_URL}/albums/${id}`);
+    const payload = response.data;
+    return payload;
+  } catch (error) {
+    console.log('Error', error);
+  }
+};
