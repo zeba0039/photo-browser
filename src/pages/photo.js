@@ -44,11 +44,12 @@ const PhotoDetails = () => {
               </li>
             </ol>
           </nav>
-          <div>
+          <div className='content-container'>
             <div className='photo-container'>
               <img src={photo.url} alt={photo.thumbnailUrl} />
               <h1 className='photo-title'>{capitalize(photo.title)}</h1>
             </div>
+            <div className='divider' />
             <div className='album-details'>
               <h3>Album</h3>
               <span
@@ -62,6 +63,7 @@ const PhotoDetails = () => {
                 {capitalize(album.title)}
               </span>
             </div>
+            <div className='divider' />
             <div className='user-details'>
               <h3>Credits</h3>
               <span className='name'>
