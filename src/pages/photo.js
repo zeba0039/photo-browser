@@ -44,10 +44,10 @@ const PhotoDetails = () => {
               </li>
             </ol>
           </nav>
-          <div className=''>
+          <div>
             <div className='photo-container'>
               <img src={photo.url} alt={photo.thumbnailUrl} />
-              <h3 className='photo-title'>{capitalize(photo.title)}</h3>
+              <h1 className='photo-title'>{capitalize(photo.title)}</h1>
             </div>
             <div className='album-details'>
               <h3>Album</h3>
